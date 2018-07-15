@@ -17,7 +17,7 @@ module.exports.register = function(application, req, res){
 	var carro = req.body;
 
 	application.mongoConnection(application.mongoose, function(err, db){
-		db.models.Carro.add(carro, function (err, collection) {
+		db.models.Carro.create(carro, function (err, collection) {
 			if (err) return console.error(err);
 
 			res.status(200).json(collection);

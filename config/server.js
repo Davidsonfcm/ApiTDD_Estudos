@@ -4,10 +4,18 @@ const express = require('express'),
 	consign = require('consign'),
 	cors = require('cors'),
 	connection = require('./connection'),
-	mongoose = require('mongoose');
+	mongoose = require('mongoose'),
+	fs = require('fs'),
+	path = require('path'),
+	logger = require('morgan');
 
 var app = new express();
 var routes = express.Router();
+
+if(process.env.NODE_ENV !== 'Production')
+{
+	require('dotenv').load();
+}
 
 /*Middlewares*/
 app.use(express_validator());
@@ -20,6 +28,9 @@ app.use(cors(
 	  "optionsSuccessStatus": 204
 	})
 );
+
+var accessLogStream = fs.createWriteStream(path.join(__dirname + '/log', 'access.log'), {flags: 'a'});
+app.use(logger('dev', {stream: accessLogStream}));
 
 /*Globalizando o mongoose*/
 app.mongoose = mongoose;

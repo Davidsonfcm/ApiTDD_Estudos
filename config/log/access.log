@@ -1,0 +1,6 @@
+::ffff:127.0.0.1 - - [15/Jul/2018:14:36:31 +0000] "GET /api/carro HTTP/1.1" 200 2 "-" "node-superagent/3.8.3"
+::ffff:127.0.0.1 - - [15/Jul/2018:14:37:50 +0000] "GET /api/carro HTTP/1.1" 200 2
+[0mGET /api/carro [32m200 [0m1171.372 ms - 2[0m
+[0mGET /api/carro [32m200 [0m1089.615 ms - 2[0m
+[0mPOST /api/carro [32m200 [0m1242.499 ms - 82[0m
+[0mGET /api/carro [32m200 [0m1078.221 ms - 84[0m
